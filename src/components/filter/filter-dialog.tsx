@@ -4,6 +4,7 @@ import FilterMapItem from './filter-map-item';
 import {pull, uniq} from 'lodash-es';
 import FilterBracketItem from './filter-bracket-item';
 import FilterStageItem from './filter-stage-item';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function FilterDialog(): JSX.Element {
     const onClickHandler = (isApplied) => {
@@ -71,79 +72,79 @@ export default function FilterDialog(): JSX.Element {
             <h2>Maps</h2>
             <div className={styles['map-container']}>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Arabia_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Arabia_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Arabia v3')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Arabia v3')}
                     name="ARABIA">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Bay_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Bay_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Bay v5')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Bay v5')}
                     name="BAY">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Bypass_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Bypass_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Bypass v1')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Bypass v1')}
                     name="BYPASS">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Four_Lakes_AoE2_Map.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Four_Lakes_AoE2_Map.png')}
                     value={filter.maps.includes('HC5 Cross v2')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Cross v2')}
                     name="CROSS">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Cup_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Cup_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Cup v2')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Cup v2')}
                     name="CUP">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/301px-Evacuation_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/301px-Evacuation_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Evacuation v2')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Evacuation v2')}
                     name="EVACUATION">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Gold_Rush_AoE2_Map.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Gold_Rush_AoE2_Map.png')}
                     value={filter.maps.includes('HC5 Gold Rush v2')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Gold Rush v2')}
                     name="GOLD RUSH">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/301px-HiddenForts_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/301px-HiddenForts_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Hidden Forts v2')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Hidden Forts v2')}
                     name="HIDDEN FORTS">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-High_Tides_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-High_Tides_AoE2DE.png')}
                     value={filter.maps.includes('HC5 High Tides v2')}
                     onChange={onMapFilterChange.bind(this, 'HC5 High Tides v2')}
                     name="HIGH TIDES">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Islands_Maps.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Islands_Maps.png')}
                     value={filter.maps.includes('HC5 Islands v3')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Islands v3')}
                     name="ISLANDS">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Mudflow.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Mudflow.png')}
                     value={filter.maps.includes('HC5 Mudflow v1')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Mudflow v1')}
                     name="MUDFLOW">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Quarry_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Quarry_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Quarry v4')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Quarry v4')}
                     name="QUARRY">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc="/img/maps/300px-Slopes_AoE2DE.png"
+                    imageSrc={useBaseUrl('/img/maps/300px-Slopes_AoE2DE.png')}
                     value={filter.maps.includes('HC5 Slopes v3')}
                     onChange={onMapFilterChange.bind(this, 'HC5 Slopes v3')}
                     name="SLOPES">
@@ -153,73 +154,73 @@ export default function FilterDialog(): JSX.Element {
             <h2>Brackets</h2>
             <div className={styles['map-container']}>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Vasco da Gama.png"
+                    imageSrc={useBaseUrl('/img/heroes/Vasco da Gama.png')}
                     value={filter.brackets.includes('Vasco Da Gama')}
                     onChange={onBracketFilterChange.bind(this, 'Vasco Da Gama')}
                     name={"Vasco\nda Gama"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Alexios Komnenos.png"
+                    imageSrc={useBaseUrl('/img/heroes/Alexios Komnenos.png')}
                     value={filter.brackets.includes('Alexios Komnenos')}
                     onChange={onBracketFilterChange.bind(this, 'Alexios Komnenos')}
                     name={"Alexios\nKomnenos"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Khosrau.png"
+                    imageSrc={useBaseUrl('/img/heroes/Khosrau.png')}
                     value={filter.brackets.includes('Khosrau')}
                     onChange={onBracketFilterChange.bind(this, 'Khosrau')}
                     name={"Khosrau\n "}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Gajah Mada.png"
+                    imageSrc={useBaseUrl('/img/heroes/Gajah Mada.png')}
                     value={filter.brackets.includes('Gajah Mada')}
                     onChange={onBracketFilterChange.bind(this, 'Gajah Mada')}
                     name={"Gajah Mada\n "}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Otto the Great.png"
+                    imageSrc={useBaseUrl('/img/heroes/Otto the Great.png')}
                     value={filter.brackets.includes('Otto The Great')}
                     onChange={onBracketFilterChange.bind(this, 'Otto The Great')}
                     name={"Otto\nthe Great"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/King Stephen.png"
+                    imageSrc={useBaseUrl('/img/heroes/King Stephen.png')}
                     value={filter.brackets.includes('King Stephen')}
                     onChange={onBracketFilterChange.bind(this, 'King Stephen')}
                     name={"King Stephen\n "}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Jan Zizka.png"
+                    imageSrc={useBaseUrl('/img/heroes/Jan Zizka.png')}
                     value={filter.brackets.includes('Jan Zizka')}
                     onChange={onBracketFilterChange.bind(this, 'Jan Zizka')}
                     name={"Jan Zizka\n "}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Sumanguru.png"
+                    imageSrc={useBaseUrl('/img/heroes/Sumanguru.png')}
                     value={filter.brackets.includes('Sumanguru')}
                     onChange={onBracketFilterChange.bind(this, 'Sumanguru')}
                     name={"Sumanguru\n "}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Gregory VII.png"
+                    imageSrc={useBaseUrl('/img/heroes/Gregory VII.png')}
                     value={filter.brackets.includes('Gregory VII')}
                     onChange={onBracketFilterChange.bind(this, 'Gregory VII')}
                     name={"Gregory VII\n "}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Selim the Grim.png"
+                    imageSrc={useBaseUrl('/img/heroes/Selim the Grim.png')}
                     value={filter.brackets.includes('Selim the Grim')}
                     onChange={onBracketFilterChange.bind(this, 'Selim the Grim')}
                     name={"Selim\nthe Grim"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Alfred the Alpaca.png"
+                    imageSrc={useBaseUrl('/img/heroes/Alfred the Alpaca.png')}
                     value={filter.brackets.includes('Alfred the Alpaca')}
                     onChange={onBracketFilterChange.bind(this, 'Alfred the Alpaca')}
                     name={"Alfred\nthe Alpaca"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc="/img/heroes/Jean Bureau.png"
+                    imageSrc={useBaseUrl('/img/heroes/Jean Bureau.png')}
                     value={filter.brackets.includes('Jean Bureau')}
                     onChange={onBracketFilterChange.bind(this, 'Jean Bureau')}
                     name={"Jean Bureau\n "}>
