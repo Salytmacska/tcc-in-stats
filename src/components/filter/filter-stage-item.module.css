@@ -1,0 +1,21 @@
+.stage-item {
+    width: 12rem;
+    margin: 5px;
+    border: 2px solid #efcf00;
+    height: fit-content;
+    user-select: none;
+    cursor: pointer;
+}
+
+.item-text {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    background-color: var(--ifm-color-primary);
+    color: #efcf00;
+    font-weight: bold;
+}
+
+.item-text.item-text--selected {
+    background-color: var(--ifm-color-secondary-lighter);
+}

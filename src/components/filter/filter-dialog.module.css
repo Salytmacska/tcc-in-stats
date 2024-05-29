@@ -1,0 +1,36 @@
+.hero-img {
+    height: 6rem;
+}
+
+.map-container {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.action-container {
+    display: flex;
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.action-btn {
+    background-color: var(--ifm-color-primary);
+    color: #efcf00;
+    border: 2px solid #efcf00;
+}
+
+.dialog {
+    width: var(--ifm-col-width);
+}
+
+.item-text {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border-top: 2px solid #efcf00;
+    background-color: var(--ifm-color-primary);
+    color: #efcf00;
+    font-weight: bold;
+}

@@ -1,0 +1,30 @@
+.bracket-item {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    border: 2px solid #efcf00;
+    height: fit-content;
+    user-select: none;
+    cursor: pointer;
+}
+
+.bracket-img {
+    height: 6rem;
+    background-color: var(--ifm-color-emphasis-200);
+    padding: 4px;
+}
+
+.bracket-img--selected {
+    background-color: var(--ifm-color-secondary-lighter);
+}
+
+.item-text {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border-top: 2px solid #efcf00;
+    background-color: var(--ifm-color-primary);
+    color: #efcf00;
+    font-weight: bold;
+    white-space: break-spaces;
+}
