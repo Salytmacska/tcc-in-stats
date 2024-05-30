@@ -5,7 +5,7 @@ const MapChartConfig = (style) => ({
     scales: {
         x: {
             grid: {
-                color: style.getPropertyValue('--ifm-color-emphasis-400'),
+                display: false,
             },
             ticks: {
                 color: style.getPropertyValue('--ifm-color-emphasis-800'),
@@ -13,7 +13,7 @@ const MapChartConfig = (style) => ({
         },
         y: {
             grid: {
-                color: style.getPropertyValue('--ifm-color-emphasis-400'),
+                color: style.getPropertyValue('--ifm-color-emphasis-300'),
             },
             ticks: {
                 color: style.getPropertyValue('--ifm-color-emphasis-800'),

@@ -2,17 +2,16 @@ const CivChartConfig = (style, data) => ({
     scales: {
         x: {
             grid: {
-                color: style.getPropertyValue('--ifm-color-emphasis-400'),
+                display: false,
             },
             ticks: {
-                // color: style.getPropertyValue('--ifm-color-emphasis-800'),
                 autoSkip: false,
                 color: data.map((_v, i) => i % 2 === 0 ? style.getPropertyValue('--ifm-color-primary') : style.getPropertyValue('--ifm-color-secondary')),
             },
         },
         y: {
             grid: {
-                color: style.getPropertyValue('--ifm-color-emphasis-400'),
+                color: style.getPropertyValue('--ifm-color-emphasis-300'),
             },
             ticks: {
                 color: style.getPropertyValue('--ifm-color-emphasis-800'),
