@@ -8,6 +8,7 @@ import CivBanChart from './civ-ban-chart';
 import CivPlayChart from './civ-play-chart';
 import CivWinChart from './civ-win-chart';
 import styles from './base.module.css';
+import GameTimeChart from './game-time-chart';
 
 export default function Base(): JSX.Element {
     const [filter, setFilter] = useState(null);
@@ -47,8 +48,10 @@ export default function Base(): JSX.Element {
             <h2>Games data</h2>
             <p>The next chart shows the number of times a civilization was played. If you are curious about a specific map, or ELO range, then use the filters accessible using the filter button on the top-right.</p>
             <CivPlayChart gamesData={filteredGamesData.filter(game => game.map != null)}></CivPlayChart>
-            <p>And finally the big question. Which civ is the best? Below is the win rate chart. Hover each column to get the important additional context of the number of games played.</p>
+            <p>Which civ is the best? Below is the win rate chart. Hover each column to get the important additional context of the number of games played.</p>
             <CivWinChart gamesData={filteredGamesData.filter(game => game.map != null)}></CivWinChart>
+            <p>How long each game was? Let's see on the next graph!</p>
+            <GameTimeChart gamesData={filteredGamesData.filter(game => game.map != null)}></GameTimeChart>
             <hr></hr>
             Thanks for checking out Hidden Community Cup in Stats. Below are some small footnotes regarding some edge cases in the data:
             <ul>
