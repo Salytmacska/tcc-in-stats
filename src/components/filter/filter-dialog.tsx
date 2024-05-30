@@ -267,8 +267,8 @@ export default function FilterDialog(): JSX.Element {
             </div>
             <hr/>
             <div className={styles['action-container']}>
-                <button onClick={onClickHandler.bind(this, true)} className={`close ${styles['action-btn']}`}>APPLY FILTERS</button>
-                <button onClick={onClickHandler.bind(this, false)} className={`close ${styles['action-btn']}`}>CANCEL</button>
+                <button onClick={onClickHandler.bind(this, true)} className={`${styles['action-btn']}`}>APPLY FILTERS</button>
+                <button onClick={onClickHandler.bind(this, false)} className={`${styles['action-btn']}`}>CANCEL</button>
             </div>
         </dialog>
     );

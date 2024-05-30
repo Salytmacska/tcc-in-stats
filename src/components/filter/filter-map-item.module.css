@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin: 5px;
-    border: 2px solid #efcf00;
     height: fit-content;
     user-select: none;
     cursor: pointer;
@@ -12,6 +11,9 @@
     height: 6rem;
     background-color: var(--ifm-color-emphasis-200);
     padding: 2px;
+    border-top: 2px groove #efcf00;
+    border-right: 2px groove #efcf00;
+    border-left: 2px groove #efcf00;
 }
 
 .map-img.map-img--selected {
@@ -22,8 +24,9 @@
     width: 100%;
     display: inline-block;
     text-align: center;
-    border-top: 2px solid #efcf00;
+    border: 2px outset #efcf00;
     background-color: var(--ifm-color-primary);
     color: #efcf00;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-weight: bold;
 }

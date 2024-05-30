@@ -18,7 +18,11 @@
 .action-btn {
     background-color: var(--ifm-color-primary);
     color: #efcf00;
-    border: 2px solid #efcf00;
+    border: 2px groove #efcf00;
+    padding: 1rem 1.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: large;
 }
 
 .dialog {
@@ -32,5 +36,6 @@
     border-top: 2px solid #efcf00;
     background-color: var(--ifm-color-primary);
     color: #efcf00;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-weight: bold;
 }
