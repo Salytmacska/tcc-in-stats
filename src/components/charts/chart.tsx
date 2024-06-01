@@ -6,9 +6,10 @@ import {
     BarElement,
     Tooltip,
     Title,
+    Legend,
 } from 'chart.js';
 
-ChartJS.register(LinearScale, CategoryScale, BarElement, Tooltip, Title);
+ChartJS.register(LinearScale, CategoryScale, BarElement, Tooltip, Title, Legend);
 
 export default function Chart({data, options}): JSX.Element {
     return (
