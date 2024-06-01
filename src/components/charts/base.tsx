@@ -9,6 +9,7 @@ import CivPlayChart from './civ-play-chart';
 import CivWinChart from './civ-win-chart';
 import styles from './base.module.css';
 import GameTimeChart from './game-time-chart';
+import MapPlayChart from './map-play-chart';
 
 export default function Base(): JSX.Element {
     const [filter, setFilter] = useState(null);
@@ -46,6 +47,8 @@ export default function Base(): JSX.Element {
             <p>Finally civilization bans.</p>
             <CivBanChart draftsData={filteredDraftsData} filter={filter}></CivBanChart>
             <h2>Games data</h2>
+            <p>So we know which maps were picked in the drafts. But which ones were actually played?</p>
+            <MapPlayChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></MapPlayChart>
             <p>The next chart shows the number of times a civilization was played. If you are curious about a specific map, or ELO range, then use the filters accessible using the filter button on the top-right.</p>
             <CivPlayChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></CivPlayChart>
             <p>Which civ is the best? Below is the win rate chart. Hover each column to get the important additional context of the number of games played.</p>
@@ -62,7 +65,7 @@ export default function Base(): JSX.Element {
                     dodo3011 vs. sizzlinfajita (Jan Zizka - Group A) Had 3 games, all of them seems to be lost. The games are included in the games total, and the drafts are included in the set charts. But the individual game charts are missing these 3 games. 
                 </li>
                 <li>
-                    Some other games and sets are missing too. They'll be added shortly!
+                    Some other games and sets are missing too. They'll be added shortly! Same goes for fixing the game lengths on dropped games.
                 </li>
             </ul>
         </Fragment>

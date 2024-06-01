@@ -6,17 +6,14 @@ import { merge } from 'lodash-es';
 import { Filter } from "../filter/filter-dialog";
 import { FilterLegendConfig } from "@site/src/utils/civ-chart-config";
 
-export default function MapPickChart({draftsData, filter}: {draftsData: {mapDrafts: any[]}, filter: Filter}): JSX.Element {
+export default function MapPlayChart({gamesData, filter}: {gamesData: any[], filter: Filter}): JSX.Element {
     useDelayedColorMode();
-    const draftPickData: {[key: string]: number} = draftsData.mapDrafts.reduce(
-        (acc, draft) => {
-            const mapPicks = draft.draft.filter(v => v.action === 'pick').map(v => v.map);
-            for (const pick of mapPicks) {
-                if (acc.hasOwnProperty(pick)) {
-                    acc[pick] = acc[pick] + 1;
-                } else {
-                    acc[pick] = 1;
-                }
+    const mapData: {[key: string]: number} = gamesData.reduce(
+        (acc, game) => {
+            if (acc.hasOwnProperty(game.map)) {
+                acc[game.map] = acc[game.map] + 1;
+            } else {
+                acc[game.map] = 1;
             }
             return acc;
         },
@@ -24,14 +21,14 @@ export default function MapPickChart({draftsData, filter}: {draftsData: {mapDraf
     );
     const data = [];
     const keys = [];
-    for (const [key, value] of Object.entries(draftPickData).sort(([k, a], [ka, b]) => b - a)) {
+    for (const [key, value] of Object.entries(mapData).sort(([k, a], [ka, b]) => b - a)) {
         data.push(value);
-        keys.push(GameNameMappingToDisplayName[mapDraftNameToGameNameMapping[key]]);
+        keys.push(GameNameMappingToDisplayName[key]);
     }
     
     const style = getComputedStyle(document.body);
     const options = merge(MapChartConfig(style), FilterLegendConfig(style, filter, false), {plugins: {
-        title: {display: true, text: 'Maps picks'},
+        title: {display: true, text: 'Maps played'},
         plugins: {tooltip: {enables: true}},
     }});
     return <Chart data={{datasets: [{data: data}], labels: keys}} options={options}></Chart>;
