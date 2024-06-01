@@ -1,9 +1,10 @@
-import CivChartConfig from "@site/src/utils/civ-chart-config";
+import CivChartConfig, { FilterLegendConfig } from "@site/src/utils/civ-chart-config";
 import Chart from "./chart";
 import useDelayedColorMode from "@site/src/utils/use-delayed-color-mode";
 import { merge } from 'lodash-es';
+import { Filter } from "../filter/filter-dialog";
 
-export default function CivPlayChart({gamesData}): JSX.Element {
+export default function CivPlayChart({gamesData, filter}: {gamesData: any[], filter: Filter}): JSX.Element {
     useDelayedColorMode();
     const civPlayData: {[key: string]: number} = gamesData.reduce(
         (acc, game) => {
@@ -27,7 +28,7 @@ export default function CivPlayChart({gamesData}): JSX.Element {
     }
 
     const style = getComputedStyle(document.body);
-    const options = merge(CivChartConfig(style, data), {plugins: {
+    const options = merge(CivChartConfig(style, data), FilterLegendConfig(style, filter, true), {plugins: {
         title: {display: true, text: 'Civilizations played'},
         tooltip: {enables: true},
     }});

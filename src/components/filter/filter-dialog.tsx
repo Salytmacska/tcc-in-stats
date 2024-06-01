@@ -1,10 +1,22 @@
 import { useState } from 'react';
 import styles from './filter-dialog.module.css'
 import FilterMapItem from './filter-map-item';
-import {pull, uniq} from 'lodash-es';
+import {pull, uniq, merge, cloneDeep} from 'lodash-es';
 import FilterBracketItem from './filter-bracket-item';
 import FilterStageItem from './filter-stage-item';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+export type Filter = {
+    maps: string[],
+    brackets: string[],
+    stages: string[],
+    appliedFilters: {
+        any: boolean,
+        stages: boolean,
+        brackets: boolean,
+        maps: boolean,
+    },
+};
 
 export default function FilterDialog(): JSX.Element {
     const onClickHandler = (isApplied) => {
@@ -14,7 +26,7 @@ export default function FilterDialog(): JSX.Element {
         }
         dialog.close();
     };
-    const [filter, setFilter] = useState({
+    const defaultFilter: Filter = {
         maps: [
             'HC5 Arabia v3', 'HC5 Bay v5', 'HC5 Bypass v1', 'HC5 Cross v2', 'HC5 Cup v2', 'HC5 Evacuation v2', 'HC5 Gold Rush v2',
             'HC5 Hidden Forts v2', 'HC5 High Tides v2', 'HC5 Islands v3', 'HC5 Mudflow v1', 'HC5 Quarry v4', 'HC5 Slopes v3',
@@ -26,45 +38,43 @@ export default function FilterDialog(): JSX.Element {
         stages: [
             'Group A', 'Group B', 'Group C', 'Group D', 'Quarter Final', 'Semi Final', 'Final',
         ],
-    });
+        appliedFilters: {
+            any: false,
+            stages: false,
+            brackets: false,
+            maps: false,
+        },
+    };
+    const [filter, setFilter] = useState(cloneDeep(defaultFilter));
     const onMapFilterChange = (mapname, value) => {
-        if (value === false) {
-            setFilter({
-                ...filter,
-                maps: pull(filter.maps, mapname),
-            });
-        } else {
-            setFilter({
-                ...filter,
-                maps: uniq(filter.maps.concat(mapname)),
-            });
-        }
+        const newSelectedMaps = value === false ? pull(filter.maps, mapname) : uniq(filter.maps.concat(mapname));
+        setFilter(merge({}, filter, {
+            maps: newSelectedMaps,
+            appliedFilters: {
+                maps: newSelectedMaps.length != defaultFilter.maps.length,
+                any: filter.appliedFilters.stages || filter.appliedFilters.brackets || newSelectedMaps.length != defaultFilter.maps.length,
+            },
+        }));
     };
     const onBracketFilterChange = (bracketName, value) => {
-        if (value === false) {
-            setFilter({
-                ...filter,
-                brackets: pull(filter.brackets, bracketName),
-            });
-        } else {
-            setFilter({
-                ...filter,
-                brackets: uniq(filter.brackets.concat(bracketName)),
-            });
-        }
+        const newSelectedBrackets = value === false ? pull(filter.brackets, bracketName) : uniq(filter.brackets.concat(bracketName));
+        setFilter(merge({}, filter, {
+            brackets: newSelectedBrackets,
+            appliedFilters: {
+                brackets: newSelectedBrackets.length != defaultFilter.brackets.length,
+                any: filter.appliedFilters.stages || newSelectedBrackets.length != defaultFilter.brackets.length || filter.appliedFilters.maps,
+            },
+        }));
     };
     const onStageFilterChange = (stageName, value) => {
-        if (value === false) {
-            setFilter({
-                ...filter,
-                stages: pull(filter.stages, stageName),
-            });
-        } else {
-            setFilter({
-                ...filter,
-                stages: uniq(filter.stages.concat(stageName)),
-            });
-        }
+        const newSelectedStages = value === false ? pull(filter.stages, stageName) : uniq(filter.stages.concat(stageName));
+        setFilter(merge({}, filter, {
+            stages: newSelectedStages,
+            appliedFilters: {
+                stages: newSelectedStages.length != defaultFilter.stages.length,
+                any: newSelectedStages.length != defaultFilter.stages.length || filter.appliedFilters.brackets || filter.appliedFilters.maps,
+            },
+        }));
     };
 
     return (

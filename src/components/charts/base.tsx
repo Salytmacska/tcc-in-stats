@@ -40,18 +40,18 @@ export default function Base(): JSX.Element {
             <h2>Drafts data</h2>
             <p>The following charts summarize the data gathered from the drafts.</p>
             <p>This chart is showing the number of times each map was picked during a draft. Note that any map not picked was banned so no separate chart for that.</p>
-            <MapPickChart draftsData={filteredDraftsData}></MapPickChart>
+            <MapPickChart draftsData={filteredDraftsData} filter={filter}></MapPickChart>
             <p>Next up is civilization picks in the drafts specifically.</p>
-            <CivPickChart draftsData={filteredDraftsData}></CivPickChart>
+            <CivPickChart draftsData={filteredDraftsData} filter={filter}></CivPickChart>
             <p>Finally civilization bans.</p>
-            <CivBanChart draftsData={filteredDraftsData}></CivBanChart>
+            <CivBanChart draftsData={filteredDraftsData} filter={filter}></CivBanChart>
             <h2>Games data</h2>
             <p>The next chart shows the number of times a civilization was played. If you are curious about a specific map, or ELO range, then use the filters accessible using the filter button on the top-right.</p>
-            <CivPlayChart gamesData={filteredGamesData.filter(game => game.map != null)}></CivPlayChart>
+            <CivPlayChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></CivPlayChart>
             <p>Which civ is the best? Below is the win rate chart. Hover each column to get the important additional context of the number of games played.</p>
-            <CivWinChart gamesData={filteredGamesData.filter(game => game.map != null)}></CivWinChart>
+            <CivWinChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></CivWinChart>
             <p>How long each game was? Let's see on the next graph!</p>
-            <GameTimeChart gamesData={filteredGamesData.filter(game => game.map != null)}></GameTimeChart>
+            <GameTimeChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></GameTimeChart>
             <hr></hr>
             Thanks for checking out Hidden Community Cup in Stats. Below are some small footnotes regarding some edge cases in the data:
             <ul>
@@ -60,6 +60,9 @@ export default function Base(): JSX.Element {
                 </li>
                 <li>
                     dodo3011 vs. sizzlinfajita (Jan Zizka - Group A) Had 3 games, all of them seems to be lost. The games are included in the games total, and the drafts are included in the set charts. But the individual game charts are missing these 3 games. 
+                </li>
+                <li>
+                    Some other games and sets are missing too. They'll be added shortly!
                 </li>
             </ul>
         </Fragment>

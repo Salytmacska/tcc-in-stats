@@ -1,7 +1,9 @@
 import useDelayedColorMode from "@site/src/utils/use-delayed-color-mode";
 import Chart from "./chart";
+import { Filter } from "../filter/filter-dialog";
+import { GameNameMappingToDisplayName } from "@site/src/data/mapping";
 
-export default function GameTimeChart({gamesData}): JSX.Element {
+export default function GameTimeChart({gamesData, filter}: {gamesData: any[], filter: Filter}): JSX.Element {
     useDelayedColorMode();
     const groupedDurationCounts = [
         {value: 0, lowerBound: null, upperBound: 15, label: '<= 14'},
@@ -61,6 +63,24 @@ export default function GameTimeChart({gamesData}): JSX.Element {
         plugins: {
             title: {display: true, text: 'Number of games by length'},
             tooltip: {enables: true},
+            legend: {
+                display: filter != null && filter.appliedFilters.any,
+                labels: {
+                    boxWidth: 0,
+                    boxHeight: 0,
+                    font: {
+                        size: 8,
+                    },
+                    generateLabels: () => {
+                        if (filter == null) return [];
+                        return [
+                            {text: `Maps: ${filter.appliedFilters.maps ? filter.maps.map(gameName => GameNameMappingToDisplayName[gameName]).join(', ') : 'All'}`, fontColor: style.getPropertyValue('--ifm-color-emphasis-800')},
+                            {text: `Brackets: ${filter.appliedFilters.brackets ? filter.brackets.join(', ') : 'All'}`, fontColor: style.getPropertyValue('--ifm-color-emphasis-800')},
+                            {text: `Stages: ${filter.appliedFilters.stages ? filter.stages.join(', ') : 'All'}`, fontColor: style.getPropertyValue('--ifm-color-emphasis-800')},
+                        ];
+                    },
+                },
+            },
         },
     };
     return (

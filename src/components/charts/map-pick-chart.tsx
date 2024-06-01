@@ -3,8 +3,10 @@ import { GameNameMappingToDisplayName, mapDraftNameToGameNameMapping } from "@si
 import MapChartConfig from "@site/src/utils/map-chart-config";
 import useDelayedColorMode from "@site/src/utils/use-delayed-color-mode";
 import { merge } from 'lodash-es';
+import { Filter } from "../filter/filter-dialog";
+import { FilterLegendConfig } from "@site/src/utils/civ-chart-config";
 
-export default function MapPickChart({draftsData}): JSX.Element {
+export default function MapPickChart({draftsData, filter}: {draftsData: {mapDrafts: any[]}, filter: Filter}): JSX.Element {
     useDelayedColorMode();
     const draftPickData: {[key: string]: number} = draftsData.mapDrafts.reduce(
         (acc, draft) => {
@@ -28,7 +30,7 @@ export default function MapPickChart({draftsData}): JSX.Element {
     }
     
     const style = getComputedStyle(document.body);
-    const options = merge(MapChartConfig(style), {plugins: {
+    const options = merge(MapChartConfig(style), FilterLegendConfig(style, filter, false), {plugins: {
         title: {display: true, text: 'Map picks'},
         plugins: {tooltip: {enables: true}},
     }});

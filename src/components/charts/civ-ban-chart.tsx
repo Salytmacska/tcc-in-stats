@@ -1,9 +1,10 @@
-import CivChartConfig from "@site/src/utils/civ-chart-config";
+import CivChartConfig, { FilterLegendConfig } from "@site/src/utils/civ-chart-config";
 import Chart from "./chart";
 import useDelayedColorMode from "@site/src/utils/use-delayed-color-mode";
 import { merge } from 'lodash-es';
+import { Filter } from "../filter/filter-dialog";
 
-export default function CivBanChart({draftsData}): JSX.Element {
+export default function CivBanChart({draftsData, filter}: {draftsData: {civDrafts: any[]}, filter: Filter}): JSX.Element {
     useDelayedColorMode();
     const draftPickData: {[key: string]: number} = draftsData.civDrafts.reduce(
         (acc, draft) => {
@@ -27,7 +28,7 @@ export default function CivBanChart({draftsData}): JSX.Element {
     }
 
     const style = getComputedStyle(document.body);
-    const options = merge(CivChartConfig(style, data), {plugins: {
+    const options = merge(CivChartConfig(style, data), FilterLegendConfig(style, filter, false), {plugins: {
         title: {display: true, text: 'Civilization bans'},
         tooltip: {enables: true},
     }});
