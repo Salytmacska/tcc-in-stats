@@ -32,7 +32,7 @@ const _FilterLegendConfig = (style, filter: Filter, showMapsFilter: boolean) => 
                     boxWidth: 0,
                     boxHeight: 0,
                     font: {
-                        size: 8,
+                        size: 9,
                     },
                     generateLabels: () => {
                         if (filter == null) return [];
