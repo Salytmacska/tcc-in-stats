@@ -28,12 +28,13 @@ export default function FilterDialog(): JSX.Element {
     };
     const defaultFilter: Filter = {
         maps: [
-            'HC5 Arabia v3', 'HC5 Bay v5', 'HC5 Bypass v1', 'HC5 Cross v2', 'HC5 Cup v2', 'HC5 Evacuation v2', 'HC5 Gold Rush v2',
-            'HC5 Hidden Forts v2', 'HC5 High Tides v2', 'HC5 Islands v3', 'HC5 Mudflow v1', 'HC5 Quarry v4', 'HC5 Slopes v3',
+            'TCC African Reed Beds', 'TCC Coast to Mountain', 'TCC Fortified Clearing',
+            'TCC Fractal', 'TCC Golden Lakes', 'TCC Llanganati',
+            'TCC Outcrop', 'TCC Ring of Reeds', 'TCC Spiral',
         ],
         brackets: [
-            'Vasco Da Gama', 'Alexios Komnenos', 'Khosrau', 'Gajah Mada', 'Otto The Great', 'King Stephen',
-            'Jan Zizka', 'Sumanguru', 'Gregory VII', 'Selim the Grim', 'Alfred the Alpaca', 'Jean Bureau',
+            'Champion', 'Monks', 'Mangonels', 'Knights', 'Light Cavs', 'Pikemen',
+            'Longswords', 'Crossbows', 'Skirms', 'Spearmen', 'Archers', 'Militia',
         ],
         stages: [
             'Group A', 'Group B', 'Group C', 'Group D', 'Quarter Final', 'Semi Final', 'Final',
@@ -82,158 +83,134 @@ export default function FilterDialog(): JSX.Element {
             <h2>Maps</h2>
             <div className={styles['map-container']}>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Arabia_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Arabia v3')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Arabia v3')}
-                    name="ARABIA">
+                    imageSrc={useBaseUrl('/img/maps/TheHipOs_AoE2Map.png')}
+                    value={filter.maps.includes('TCC African Reed Beds')}
+                    onChange={onMapFilterChange.bind(this, 'TCC African Reed Beds')}
+                    name="African Reed Beds">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Bay_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Bay v5')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Bay v5')}
-                    name="BAY">
+                    imageSrc={useBaseUrl('/img/maps/Coast_to_Mountains_AoE2_Map.png')}
+                    value={filter.maps.includes('TCC Coast to Mountain')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Coast to Mountain')}
+                    name="Coast to Mountain">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Bypass_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Bypass v1')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Bypass v1')}
-                    name="BYPASS">
+                    imageSrc={useBaseUrl('/img/maps/Fortified_Clearing_AoE2_map.png')}
+                    value={filter.maps.includes('TCC Fortified Clearing')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Fortified Clearing')}
+                    name="Fortified Clearing">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Four_Lakes_AoE2_Map.png')}
-                    value={filter.maps.includes('HC5 Cross v2')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Cross v2')}
-                    name="CROSS">
+                    imageSrc={useBaseUrl('/img/maps/Fractal_AoE2_map.png')}
+                    value={filter.maps.includes('TCC Fractal')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Fractal')}
+                    name="Fractal">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Cup_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Cup v2')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Cup v2')}
-                    name="CUP">
+                    imageSrc={useBaseUrl('/img/maps/Golden_Lakes_Map.png')}
+                    value={filter.maps.includes('TCC Golden Lakes')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Golden Lakes')}
+                    name="Golden Lakes">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/301px-Evacuation_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Evacuation v2')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Evacuation v2')}
-                    name="EVACUATION">
+                    imageSrc={useBaseUrl('/img/maps/463px-Llanganati_AoE2_Map.webp.png')}
+                    value={filter.maps.includes('TCC Llanganati')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Llanganati')}
+                    name="Llanganati">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Gold_Rush_AoE2_Map.png')}
-                    value={filter.maps.includes('HC5 Gold Rush v2')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Gold Rush v2')}
-                    name="GOLD RUSH">
+                    imageSrc={useBaseUrl('/img/maps/Outcrop_AoE2_map.png')}
+                    value={filter.maps.includes('TCC Outcrop')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Outcrop')}
+                    name="Outcrop">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/301px-HiddenForts_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Hidden Forts v2')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Hidden Forts v2')}
-                    name="HIDDEN FORTS">
+                    imageSrc={useBaseUrl('/img/maps/Ring_of_Reeds_AoE2_map.png')}
+                    value={filter.maps.includes('TCC Ring of Reeds')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Ring of Reeds')}
+                    name="Ring of Reeds">
                 </FilterMapItem>
                 <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-High_Tides_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 High Tides v2')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 High Tides v2')}
-                    name="HIGH TIDES">
-                </FilterMapItem>
-                <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Islands_Maps.png')}
-                    value={filter.maps.includes('HC5 Islands v3')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Islands v3')}
-                    name="ISLANDS">
-                </FilterMapItem>
-                <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Mudflow.png')}
-                    value={filter.maps.includes('HC5 Mudflow v1')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Mudflow v1')}
-                    name="MUDFLOW">
-                </FilterMapItem>
-                <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Quarry_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Quarry v4')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Quarry v4')}
-                    name="QUARRY">
-                </FilterMapItem>
-                <FilterMapItem
-                    imageSrc={useBaseUrl('/img/maps/300px-Slopes_AoE2DE.png')}
-                    value={filter.maps.includes('HC5 Slopes v3')}
-                    onChange={onMapFilterChange.bind(this, 'HC5 Slopes v3')}
-                    name="SLOPES">
+                    imageSrc={useBaseUrl('/img/maps/Spiral_AoE2_map.png')}
+                    value={filter.maps.includes('TCC Spiral')}
+                    onChange={onMapFilterChange.bind(this, 'TCC Spiral')}
+                    name="Spiral">
                 </FilterMapItem>
             </div>
             <hr/>
             <h2>Brackets</h2>
             <div className={styles['map-container']}>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Vasco da Gama.png')}
-                    value={filter.brackets.includes('Vasco Da Gama')}
-                    onChange={onBracketFilterChange.bind(this, 'Vasco Da Gama')}
-                    name={"Vasco\nda Gama"}>
+                    imageSrc={useBaseUrl('/img/brackets/Champion.webp')}
+                    value={filter.brackets.includes('Champion')}
+                    onChange={onBracketFilterChange.bind(this, 'Champion')}
+                    name={"Champion"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Alexios Komnenos.png')}
-                    value={filter.brackets.includes('Alexios Komnenos')}
-                    onChange={onBracketFilterChange.bind(this, 'Alexios Komnenos')}
-                    name={"Alexios\nKomnenos"}>
+                    imageSrc={useBaseUrl('/img/brackets/Monk.webp')}
+                    value={filter.brackets.includes('Monks')}
+                    onChange={onBracketFilterChange.bind(this, 'Monks')}
+                    name={"Monks"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Khosrau.png')}
-                    value={filter.brackets.includes('Khosrau')}
-                    onChange={onBracketFilterChange.bind(this, 'Khosrau')}
-                    name={"Khosrau\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Mangonel.webp')}
+                    value={filter.brackets.includes('Mangonels')}
+                    onChange={onBracketFilterChange.bind(this, 'Mangonels')}
+                    name={"Mangonels"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Gajah Mada.png')}
-                    value={filter.brackets.includes('Gajah Mada')}
-                    onChange={onBracketFilterChange.bind(this, 'Gajah Mada')}
-                    name={"Gajah Mada\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Knight.webp')}
+                    value={filter.brackets.includes('Knights')}
+                    onChange={onBracketFilterChange.bind(this, 'Knights')}
+                    name={"Knights"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Otto the Great.png')}
-                    value={filter.brackets.includes('Otto The Great')}
-                    onChange={onBracketFilterChange.bind(this, 'Otto The Great')}
-                    name={"Otto\nthe Great"}>
+                    imageSrc={useBaseUrl('/img/brackets/Lightcavalry.webp')}
+                    value={filter.brackets.includes('Light Cavs')}
+                    onChange={onBracketFilterChange.bind(this, 'Light Cavs')}
+                    name={"Light Cavs"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/King Stephen.png')}
-                    value={filter.brackets.includes('King Stephen')}
-                    onChange={onBracketFilterChange.bind(this, 'King Stephen')}
-                    name={"King Stephen\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Pikeman.webp')}
+                    value={filter.brackets.includes('Pikemen')}
+                    onChange={onBracketFilterChange.bind(this, 'Pikemen')}
+                    name={"Pikemen"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Jan Zizka.png')}
-                    value={filter.brackets.includes('Jan Zizka')}
-                    onChange={onBracketFilterChange.bind(this, 'Jan Zizka')}
-                    name={"Jan Zizka\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Longswordsman.webp')}
+                    value={filter.brackets.includes('Longswords')}
+                    onChange={onBracketFilterChange.bind(this, 'Longswords')}
+                    name={"Longswords"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Sumanguru.png')}
-                    value={filter.brackets.includes('Sumanguru')}
-                    onChange={onBracketFilterChange.bind(this, 'Sumanguru')}
-                    name={"Sumanguru\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Crossbowman.webp')}
+                    value={filter.brackets.includes('Crossbows')}
+                    onChange={onBracketFilterChange.bind(this, 'Crossbows')}
+                    name={"Crossbows"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Gregory VII.png')}
-                    value={filter.brackets.includes('Gregory VII')}
-                    onChange={onBracketFilterChange.bind(this, 'Gregory VII')}
-                    name={"Gregory VII\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Skirmisher.webp')}
+                    value={filter.brackets.includes('Skirms')}
+                    onChange={onBracketFilterChange.bind(this, 'Skirms')}
+                    name={"Skirms"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Selim the Grim.png')}
-                    value={filter.brackets.includes('Selim the Grim')}
-                    onChange={onBracketFilterChange.bind(this, 'Selim the Grim')}
-                    name={"Selim\nthe Grim"}>
+                    imageSrc={useBaseUrl('/img/brackets/Spearman.webp')}
+                    value={filter.brackets.includes('Spearmen')}
+                    onChange={onBracketFilterChange.bind(this, 'Spearmen')}
+                    name={"Spearmen"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Alfred the Alpaca.png')}
-                    value={filter.brackets.includes('Alfred the Alpaca')}
-                    onChange={onBracketFilterChange.bind(this, 'Alfred the Alpaca')}
-                    name={"Alfred\nthe Alpaca"}>
+                    imageSrc={useBaseUrl('/img/brackets/Archers.webp')}
+                    value={filter.brackets.includes('Archers')}
+                    onChange={onBracketFilterChange.bind(this, 'Archers')}
+                    name={"Archers"}>
                 </FilterBracketItem>
                 <FilterBracketItem
-                    imageSrc={useBaseUrl('/img/heroes/Jean Bureau.png')}
-                    value={filter.brackets.includes('Jean Bureau')}
-                    onChange={onBracketFilterChange.bind(this, 'Jean Bureau')}
-                    name={"Jean Bureau\n "}>
+                    imageSrc={useBaseUrl('/img/brackets/Militia.webp')}
+                    value={filter.brackets.includes('Militia')}
+                    onChange={onBracketFilterChange.bind(this, 'Militia')}
+                    name={"Militia"}>
                 </FilterBracketItem>
             </div>
             <hr/>

@@ -27,8 +27,8 @@ export default function Base(): JSX.Element {
     return (
         <Fragment>
             <sup className={styles.attributions}>Thanks to Beargwyn for compiling all the data.</sup>
-            <p>Welcome to the "Hidden Community Cup in Stats" website. This website collects all the statistics you could ever want to know about the tournament in one place!</p>
-            <p>The data, by default summarizes the entire tournament. Use the filters on the toolbar to view the data pertaining to a particular group, map or bracket.</p>
+            <p>Welcome to the "T90 Community Cup in Stats" website. This website collects all the statistics you could ever want to know about the tournament in one place!</p>
+            <p>The data, by default summarizes the entire tournament (as of 2024.06.25). Use the filters on the toolbar to view the data pertaining to a particular group, map or bracket.</p>
             <p>So let's jump in with the most encompassing stats first:</p>
             {isFilterApplied ?
                 <p>There were <span className={styles['highlighted-text']}>{filteredDraftsData.mapDrafts.length}</span> sets played over the course of the tournmament, that match the selected filters.</p> :
@@ -56,18 +56,7 @@ export default function Base(): JSX.Element {
             <p>How long each game was? Let's see on the next graph!</p>
             <GameTimeChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></GameTimeChart>
             <hr></hr>
-            Thanks for checking out Hidden Community Cup in Stats. Below are some small footnotes regarding some edge cases in the data:
-            <ul>
-                <li>
-                    noah vs. spacekinch (Alexios Komnenos - Group B) Game 1 seems to be missing. The game is included in the games total, but not in any of the individual charts.
-                </li>
-                <li>
-                    dodo3011 vs. sizzlinfajita (Jan Zizka - Group A) Had 3 games, all of them seems to be lost. The games are included in the games total, and the drafts are included in the set charts. But the individual game charts are missing these 3 games. 
-                </li>
-                <li>
-                    Some other games and sets are missing too. They'll be added shortly! Same goes for fixing the game lengths on dropped games.
-                </li>
-            </ul>
+            Thanks for checking out T90 Community Cup in Stats!
         </Fragment>
     );
 }
