@@ -10,6 +10,7 @@ import CivWinChart from './civ-win-chart';
 import styles from './base.module.css';
 import GameTimeChart from './game-time-chart';
 import MapPlayChart from './map-play-chart';
+import ApmChart from './apm-chart';
 
 export default function Base(): JSX.Element {
     const [filter, setFilter] = useState(null);
@@ -55,6 +56,8 @@ export default function Base(): JSX.Element {
             <CivWinChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></CivWinChart>
             <p>How long each game was? Let's see on the next graph!</p>
             <GameTimeChart gamesData={filteredGamesData.filter(game => game.map != null)} filter={filter}></GameTimeChart>
+            <p>Who is the fastest player in the tournament? We can see the eAPM over all brackets</p>
+            <ApmChart gamesData={gamesData.filter(game => game.map != null)} filter={filter}></ApmChart>
             <hr></hr>
             Thanks for checking out T90 Community Cup in Stats!
         </Fragment>
