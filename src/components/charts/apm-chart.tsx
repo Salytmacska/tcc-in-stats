@@ -41,6 +41,8 @@ export default function ApmChart({ gamesData }: { gamesData: any[] }): JSX.Eleme
         borderColor: bracketColors[bracket],
     }));
 
+    const style = getComputedStyle(document.body);
+
     const xLabels = {
         id: 'xLabels',
         beforeDatasetsDraw(chart: Chart<'scatter'>) {
@@ -52,14 +54,14 @@ export default function ApmChart({ gamesData }: { gamesData: any[] }): JSX.Eleme
                     return;
                 }
                 ctx.beginPath();
-                ctx.strokeStyle = 'rgba(102, 102, 102, 0.2)';
+                ctx.strokeStyle = style.getPropertyValue('--ifm-color-emphasis-300');
                 ctx.moveTo(scales.x.getPixelForValue(index), scales.x.top);
                 ctx.lineTo(scales.x.getPixelForValue(index), scales.x.bottom);
                 ctx.stroke();
             });
 
             chart.data.datasets.forEach(dataset => {
-                ctx.fillStyle = 'black';
+                ctx.fillStyle = style.getPropertyValue('--ifm-color-emphasis-800');
                 ctx.textAlign = 'center';
                 ctx.fillText(dataset.label, scales[dataset.xAxisID].getPixelForValue(0.5), scales[dataset.xAxisID].bottom + 10);
             });
@@ -103,7 +105,12 @@ export default function ApmChart({ gamesData }: { gamesData: any[] }): JSX.Eleme
                 ])
             ),
             y: {
-                beginAtZero: false
+                grid: {
+                    color: style.getPropertyValue('--ifm-color-emphasis-300'),
+                },
+                ticks: {
+                    color: style.getPropertyValue('--ifm-color-emphasis-800'),
+                },
             }
         },
     };
