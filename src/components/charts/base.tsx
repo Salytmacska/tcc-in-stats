@@ -29,7 +29,7 @@ export default function Base(): JSX.Element {
         <Fragment>
             <sup className={styles.attributions}>Thanks to Beargwyn for compiling all the data.</sup>
             <p>Welcome to the "T90 Community Cup in Stats" website. This website collects all the statistics you could ever want to know about the tournament in one place!</p>
-            <p>The data, by default summarizes the entire tournament (as of 2024.07.20). Use the filters on the toolbar to view the data pertaining to a particular group, map or bracket.</p>
+            <p>The data, by default summarizes the entire tournament (as of 2024.07.21). Use the filters on the toolbar to view the data pertaining to a particular group, map or bracket.</p>
             <p>So let's jump in with the most encompassing stats first:</p>
             {isFilterApplied ?
                 <p>There were <span className={styles['highlighted-text']}>{filteredDraftsData.mapDrafts.length}</span> sets played over the course of the tournmament, that match the selected filters.</p> :
